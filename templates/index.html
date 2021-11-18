@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>first</title>
+</head>
+<body>
+<form action="{% url 'thanks' %}" method = "POST">
+    {% csrf_token %}
+    <label> name</label>
+    <input name = "name">
+    <label> num</label>
+    <input name = "phone">
+    <button type="submit">Send</button>
+</form>
+<br>
+<br>
+<br>
+<br>
+{% if orders_list %}
+<table border="1">
+    <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>num</th>
+        <th>date</th>
+    </tr>
+{% for i in orders_list %}
+    <tr>
+        <th>{{i.id}}</th>
+        <th>{{i.order_name}}</th>
+        <th>{{i.order_phone}}</th>
+        <th>{{i.order_dt}}</th>
+    </tr>
+{% endfor %}
+</table>
+{% else %}
+no data
+{% endif %}
+</body>
+</html>

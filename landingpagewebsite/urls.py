@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-
+from .webpage import first_webpage, thank_page
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', first_webpage),
+    path('thanks/', thank_page, name = 'thanks'),
 ]
