@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>first</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% load static %}
+{% block info %}
 <form action="{% url 'thanks' %}" method = "POST">
     {% csrf_token %}
     <label> name</label>
@@ -15,8 +11,10 @@
 </form>
 <br>
 <br>
+<img src="{% static '\img\76bd9990ed2bf3cc2f01500d7e21c161.jpeg'%}" height="200">
 <br>
 <br>
+
 {% if orders_list %}
 <table border="1">
     <tr>
@@ -37,5 +35,6 @@
 {% else %}
 no data
 {% endif %}
+{% endblock %}
 </body>
 </html>
